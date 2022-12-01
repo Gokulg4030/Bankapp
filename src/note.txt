@@ -1,0 +1,113 @@
+work flow 
+   
+    entry point - main ts -->app component (app)
+                 1. root component - app.component.ts
+                 2.root module - app..module.ts
+
+
+
+                        Angular
+
+
+Basic Building Blocks
+
+1) Module - Module is a mechanism to group components,directives,pipes and services which 
+             are related to the application Or To import 3rd party modules(root module)
+
+2) component - components are the main  Building Blocks for Angular application, 
+                each component has an html template,css and ts file
+
+
+Basic Commands
+
+1) To create a new project - ng new project_name   
+2) To create a new component - ng g c component_name
+3) To run Angular file - ng serve --open
+
+
+Basic concepts
+
+1) Data Binding  - share data between components
+ 
+                  ts...> component            ( data sharing between ts file and html file)
+                  html...> is for view
+
+    a)  One way data binding (1 direction)
+
+         ts ...> html  or html....>ts
+
+         a.1) component to view            ( ts to html)
+             i)  String interpolation (1 direction) - Which is used to output the data from 
+                                                     a TypeScript code to html template
+             
+                                           syntax {{expression}}
+            
+            
+             ii) property binding - helps to Set values for properties of html elements/directives  
+             
+                                           syntax [attribute name]="property"
+
+        
+        
+        a.2) View to component             (html to ts)
+            i) Event binding (1 direction)-event binding is used to handle the events raised by the user
+                                            like button_click, mouse movements,keystrokes etc.
+
+                                syntax - (event_name)="function_name()";
+
+
+            ii) Event binding using $event - Change the corresponding properties of that event using ($event)
+            
+                              syntax - (event_name)="function_name($event)
+
+            iii) Event binding using template refrencing variable - 
+            
+                              syntax - #variable_name
+
+    b) TWo way data binding (at a time share data between 2 direction)
+                     
+                     ts...> html and html...>ts
+
+        i) ngModel - formsModule in app-module                            (import formsModule in appModule.ts)
+
+                    syntax - [(ngModel)]="property_name  
+
+
+
+2) Angular Routing - to set path for a component                          (in app_routing.module.ts)
+        
+             syntax - {
+                          path:"value",component:class_name
+                       }
+
+                eg : login
+                     {
+                        path:'',component:LoginComponent
+                     }
+
+3) Dependency Injection - Data sharing between two dependent classes               eg:on clicking signin moves to login page
+
+             constructor(private router:Router) 
+             eg:Router class - navigateByUrl is used to navigate the component
+
+
+4) Angular Services - To hold redundant data   
+      command: ng g s service_name                  (angular/bankapp/src/app/create a new folder services)
+    
+             
+5) Angular Directives - To manipulate DOM (Document Object Model)
+     
+     a) Component Directives(array format)
+     b) Structural Directives (table format)
+          
+          i) *ngFor 
+          ii) ngIf
+
+6) Angular Forms 
+
+     a) templateDriven Forms (1st design html page and can't do validation)
+     b) Model Driven Forms (1st design model in ts file,easy validation methods)
+           -Advanced validation  
+              1) Reactive Forms
+               form group,array,control
+                we can directly add validation via importing Reactive Form module
